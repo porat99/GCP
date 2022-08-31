@@ -8,28 +8,32 @@ from random import sample,shuffle
 
 
 def get_test(data,num):
-    Oopnion=["A", "B", "C", "D"]
-    opnion=["A", "B", "C", "D"]
+    Oopnion=["A", "B", "C", "D","E","F","G","H","I","J","K","L"]
+    opnion=["A", "B", "C", "D","E","F","G","H","I","J","K","L"]
     testQuestion= sample(data,k=num)
     for temp in testQuestion:
         temp2=temp
         
         qes,ansers=temp2.popitem()
+        ques_size= len(ansers)-1
+        OopnionT=Oopnion[:ques_size]
+        opnionT=opnion[:ques_size]
+        
         ques=f"{qes}\n"
-        shuffle(opnion)
-        for op,order in zip(opnion,Oopnion) :
+        shuffle(opnionT)
+        for op,order in zip(opnionT,OopnionT) :
             ques+=f"{order}. {ansers[op]}\n"   
-        ans=Oopnion[opnion.index(ansers['Anser'])] 
-        yield ques,ans
+        ans=OopnionT[opnionT.index(ansers['Anser'])] 
+        yield ques,ans,OopnionT
 
 def start_test(data,ques_amount,isshow):
-    Oopnion=["A", "B", "C", "D"]
+    #Oopnion=["A", "B", "C", "D"]
     try:
         mytest= get_test(data,ques_amount)
         ques_number=0
         right_answer=0
         Mistake_arr=[]
-        for test,ans in mytest:
+        for test,ans,Oopnion in mytest:
             ques_number+=1
             temp=test.split('?')
             print ("\nquestion",ques_number,"\n",u"\u001b[36m",temp[0],"\u001b[0m",temp[1])
