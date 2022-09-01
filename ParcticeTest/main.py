@@ -1,4 +1,5 @@
 
+from ast import Pass
 import os
 import json
 from random import sample,shuffle
@@ -37,8 +38,11 @@ def start_test(data,ques_amount,isshow):
             ques_number+=1
             temp=test.split('?')
             print ("\nquestion",ques_number,"\n",u"\u001b[36m",temp[0],"\u001b[0m",temp[1])
+            
             asnser= input("answer:").upper()
-            while asnser not in Oopnion:asnser= input("aswer:").upper()
+            while asnser not in Oopnion:asnser= input("aswer:").upper() 
+            
+                    
             if ans==asnser: right_answer+=1 
             else: 
                 Mistake_arr.append({test:[ans,asnser]})

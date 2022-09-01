@@ -9,3 +9,6 @@ s={
 
 print(len(s))
 print(Oopnion[:len(s)-1])
+
+
+
