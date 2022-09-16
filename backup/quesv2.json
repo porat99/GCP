@@ -974,6 +974,17 @@
         }
     },
     {
+        "You need to reduce the number of unplanned rollbacks of erroneous production deployments in your company's web hosting platform. Improvement to the QA/ Test processes accomplished an 80% reduction. Which additional two approaches can you take to further reduce the rollbacks? (Choose two.)":
+        {
+            "A":"Introduce a green-blue deployment model",
+            "B":"Replace the QA environment with canary releases",
+            "C":"Fragment the monolithic platform into microservices",
+            "D":"Reduce the platform's dependency on relational database systems",
+            "E":"Replace the platform's relational database systems with a NoSQL database",
+            "Anser":"AC"
+        }
+    },
+    {
         "Your company wants to track whether someone is present in a meeting room reserved for a scheduled meeting. There are 1000 meeting rooms across 5 offices on 3 continents. Each room is equipped with a motion sensor that reports its status every second. The data from the motion detector includes only a sensor ID and several different discrete items of information. Analysts will use this data, together with information about account owners and office locations. Which database type should you use?":
         {
             "A":"Flat file",

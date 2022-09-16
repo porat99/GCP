@@ -8,7 +8,7 @@ from random import sample,shuffle
 
 
 
-def get_test(data,num):
+def get_test(data,num,shafle=True):
     Oopnion=["A", "B", "C", "D","E","F","G","H","I","J","K","L"]
     opnion=["A", "B", "C", "D","E","F","G","H","I","J","K","L"]
     testQuestion= sample(data,k=num)
@@ -21,7 +21,7 @@ def get_test(data,num):
         opnionT=opnion[:ques_size]
         
         ques=f"{qes}\n"
-        shuffle(opnionT)
+        if shafle :shuffle(opnionT)
         for op,order in zip(opnionT,OopnionT) :
             ques+=f"{order}. {ansers[op]}\n"   
         ans=OopnionT[opnionT.index(ansers['Anser'])] 
@@ -30,7 +30,7 @@ def get_test(data,num):
 def start_test(data,ques_amount,isshow):
     #Oopnion=["A", "B", "C", "D"]
     try:
-        mytest= get_test(data,ques_amount)
+        mytest= get_test(data,ques_amount,False)
         ques_number=0
         right_answer=0
         Mistake_arr=[]
@@ -60,11 +60,14 @@ def start_test(data,ques_amount,isshow):
         print (f"\n\nwell done you finish the test \nyour answer right {right_answer} from {ques_amount} and scoreing {score}\n\n\n")
         print(u"\u001b[0m \u001b[31m")
         [print(list(i.keys())[0],"\n right answer is ",list(i.values())[0][0],"your answer was ",list(i.values())[0][1],end="\n\n\n") for i in Mistake_arr]
+        print(f"\u001b[{color}------------------------------------------------end------------------------------------------------")
+        print (f"\n\nwell done you finish the test \nyour answer right {right_answer} from {ques_amount} and scoreing {score}\n\n\n")
         
-    except:
+    except Exception as e:
         print("------------------------------------------------end with eror------------------------------------------------")
-        print (f"\n\nwell done you finish the test \nyour answer right {right_answer} from {ques_number} and scoreing {(right_answer/ques_number)*100}\n\n\n ")
+        print(e)
         [print(list(i.keys())[0],"\n right answer is ",list(i.values())[0][0],"your answer was ",list(i.values())[0][1],end="\n\n\n") for i in Mistake_arr]
+        print (f"\n\nwell done you finish the test \nyour answer right {right_answer} from {ques_number} and scoreing {(right_answer/ques_number)*100}\n\n\n ")
    
      
 def main():
